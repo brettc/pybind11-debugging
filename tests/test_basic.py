@@ -1,4 +1,4 @@
-import scikit_build_example as m
+from pybind11_debugging import _core as m
 
 
 def test_version():

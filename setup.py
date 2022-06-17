@@ -13,15 +13,15 @@ except ImportError:
 from setuptools import find_packages
 
 setup(
-    name="scikit_build_example",
+    name="pybind11-debugging",
     version="0.0.1",
-    description="a minimal example package (with pybind11)",
-    author="Henry Schreiner",
+    description="Testing/debugging",
+    author="Brett Calcott",
     license="MIT",
     packages=find_packages(where="src"),
     package_dir={"": "src"},
-    cmake_install_dir="src/scikit_build_example",
+    cmake_install_dir="src/pybind11_debugging",
     include_package_data=True,
     extras_require={"test": ["pytest"]},
-    python_requires=">=3.6",
+    python_requires=">=3.10",
 )
