@@ -29,22 +29,24 @@ def test_dog_list():
             return "meow! " * n_times
 
     dl = m.dog_list()
-    print(m.call_go_list(dl))
+    assert m.call_go_list(dl) == ["woof! "] * 3
 
     dl.append(Cat())
+    assert m.call_go_list(dl) == ["woof! "] * 3 + ["meow! "]
     print(m.call_go_list(dl))
 
 
 def test_cat_list():
     cats = [Cat() for _ in range(3)]
-    print(m.call_go_list(cats))
+    assert m.call_go_list(cats) == ["meow! "] * 3
 
 
 def test_pound():
-    # This works, but is flawed!
+    # This works, but is flawed, as you can see in the next test.
     cats = [Cat() for _ in range(3)]
     p = m.Pound(cats)
-    print(p.go())
+
+    assert p.go() == ["meow! "] * 3
 
 
 def test_pound_with_del_cats():
@@ -56,7 +58,7 @@ def test_pound_with_del_cats():
     del cats
 
     # Virtual Call!
-    print(p.go())
+    assert p.go() == ["meow! "] * 3
 
 
 def test_pound_with_del_dogs():
@@ -66,4 +68,4 @@ def test_pound_with_del_dogs():
     del dogs
 
     # This works okay.
-    print(p.go())
+    assert p.go() == ["woof! "] * 3
