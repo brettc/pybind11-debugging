@@ -24,10 +24,6 @@ def test_dog():
 
 
 def test_dog_list():
-    class Cat(m.Animal):
-        def go(self, n_times):
-            return "meow! " * n_times
-
     dl = m.dog_list()
     assert m.call_go_list(dl) == ["woof! "] * 3
 
